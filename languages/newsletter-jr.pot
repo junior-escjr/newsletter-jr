@@ -1,0 +1,91 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Newsletter - Cadastrados\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Fri Jan 15 2016 15:15:35 GMT-0200 (Hora oficial do "
+"Brasil)\n"
+"POT-Revision-Date: Mon Feb 15 2016 11:42:13 GMT-0200 (Hora oficial do "
+"Brasil)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#. Name of the plugin
+msgid "Newsletter - Cadastrados"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/juniorbdb"
+msgstr ""
+
+#. Author of the plugin
+msgid "Junior"
+msgstr ""
+
+#. Description of the plugin
+msgid "Lista todas as pessoas cadastradas para receber as newsletters"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:71 ../includes/class-newsjr-init.php:93 ..
+#: /includes/class-newsjr-init.php:189 ../includes/class-newsjr-init.php:211
+msgid "Nome"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:72 ../includes/class-newsjr-init.php:94 ..
+#: /includes/class-newsjr-init.php:190 ../includes/class-newsjr-init.php:212
+msgid "Email"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:73 ../includes/class-newsjr-init.php:95 ..
+#: /includes/class-newsjr-init.php:191 ../includes/class-newsjr-init.php:213
+msgid "Data"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:119
+msgid "Você não tem permissão suficiente para acessar esta página."
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:125
+msgid "Newsletters"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:127 ../includes/class-newsjr-init.php:129
+msgid "Baixar planilha"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:143 ../includes/class-newsjr-init.php:145
+msgid "Listar todos os cadastrados"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:164 ../includes/class-newsjr-init.php:166 ..
+#: /includes/function-ajax.php:23 ../includes/function-ajax.php:25
+msgid "Listar todos do ano"
+msgstr ""
+
+#: ../includes/class-newsjr-init.php:181
+msgid "Filtrar"
+msgstr ""
+
+#: ../includes/class-newsjr-scripts.php:41
+msgid "Por favor preencha este campo obrigatório."
+msgstr ""
+
+#: ../includes/class-newsjr-scripts.php:42
+msgid "O endereço de e-mail parece inválido."
+msgstr ""
