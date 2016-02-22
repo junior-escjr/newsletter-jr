@@ -1,2 +1,2 @@
 # newsletter-jr
-Plugin de newsletter (em andamento)
+Plugin de newsletter (em desenvolvimento)
