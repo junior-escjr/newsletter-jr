@@ -37,6 +37,7 @@ class NEWSJR_Install {
 			id_rg_usuario int(20) NOT NULL auto_increment,
 			nome_rg_usuario varchar(200) NOT NULL,
 			email_rg_usuario varchar(200) NOT NULL,
+			mes_rg_usuario int(20) NOT NULL,
 			ano_rg_usuario int(20) NOT NULL,
 			data_rg_usuario date NOT NULL,
 			PRIMARY KEY  (id_rg_usuario),
@@ -63,6 +64,7 @@ class NEWSJR_Install {
 				id_rg_usuario int(20) NOT NULL auto_increment,
 				nome_rg_usuario varchar(200) NOT NULL,
 				email_rg_usuario varchar(200) NOT NULL,
+				mes_rg_usuario int(20) NOT NULL,
 				ano_rg_usuario datetime NULL default null,
 				PRIMARY KEY  (id_rg_usuario),
 				KEY id_rg_usuario (id_rg_usuario)

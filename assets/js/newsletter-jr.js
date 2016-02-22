@@ -3,6 +3,7 @@
 	var funcoes = {
 		init: function(){
 			this.ajaxListaMes();
+			this.tabs();
 		},
 
 		ajaxListaMes: function(){
@@ -27,9 +28,12 @@
 					
 					$('.newsjr-select-mes').remove();
 				}
-				
 			})
-			
+		},
+
+		tabs: function(){
+			// Tabs
+			$('#tabs').tabs();
 		}
 	}
 

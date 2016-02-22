@@ -105,13 +105,19 @@ class NEWSJR_Init {
 			header("Expires: 0");
 			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 			header("Content-Type: application/force-download");
-			header('Content-Type: text/html; charset=UTF-8');
+			header('Content-Type: text/html; charset=utf-8');
 			header("Content-Type: application/octet-stream");
 			header("Content-Type: application/download");
-			header("Content-Disposition: attachment;filename=compras.xls");
+			header("Content-Disposition: attachment;filename=inscritos.xls");
 			header("Content-Transfer-Encoding: binary ");
+
 			die();
 		endif;
+	}
+
+	private function tmpl_newsletter(){
+		require_once( 'tmpl-newsletterjr.php' );
+		require_once( 'tmpl-list-subscribers.php');
 	}
 
 	public function lista_cadastros_newsletter(){
@@ -119,106 +125,8 @@ class NEWSJR_Init {
 			wp_die( __( 'Você não tem permissão suficiente para acessar esta página.' ) );
 		}
 
+		$this->tmpl_newsletter();
 		
-		
-		$html = '<div class="wrap newsletter">';
-		$html .=	'<h1>'. __( 'Newsletters', 'newsletter-jr' );
-						if(isset($_GET['ano'])) :
-		$html .=		'<a class="button-primary" href="'. $_SERVER["REQUEST_URI"] .'&exportar=1">'. __( 'Baixar planilha', 'newsletter-jr' ) .'</a>';
-						else :
-		$html .=		'<a class="button-primary" href="admin.php?page=cadastrados-newsletters&exportar=1">'. __( 'Baixar planilha', 'newsletter-jr' ) .'</a>';
-						endif;
-		$html .=	'</h1>';
-		$html .=	'<ul class="subsubsub">';
-		$html .=		'<li class="all">';	
-		$html .= 			'<a class="current" href="javascript:;">Inscritos <span class="count">('. $this->count_inscritos .')</span></a>';
-		$html .=		'</li>';				
-		$html .=	'</ul>';			
-		$html .=	'<form id="cadastrados-filter" method="GET">';		
-		$html .=		'<div class="tablenav top">';		
-		$html .=			'<div class="alignleft actions bulkactions">';
-		$html .=				'<input type="hidden" name="page" value="cadastrados-newsletters">';
-		$html .=				'<select class="newsjr-select-ano" name="ano">';
-									if(isset($_GET['ano']) && !empty($_GET['ano'])) :
-		$html .=						'<option value="">'. __( 'Listar todos os cadastrados', 'newsletter-jr' ) .'</option>';
-									else :
-		$html .=						'<option value="" selected="selected" >'. __( 'Listar todos os cadastrados', 'newsletter-jr' ) .'</option>';
-									endif;
-		
-									foreach($this->ano_inscritos as $ano) :
-										if(isset($_GET['ano'])) :
-											$selected = ($ano->ano_rg_usuario == $_GET['ano']) ? 'selected="selected"' : '';
-										else :
-											$selected = '';
-										endif;
-
-		$html .= 						'<option value='.$ano->ano_rg_usuario.' '.$selected.'>'. $ano->ano_rg_usuario .'</option>';
-									endforeach;
-
-		$html .=				'</select>';
-		$html .=			'</div>';
-		$html .=			'<div class="alignleft actions newsjr-mes">';
-								if(isset($_GET['mes'])) :
-		$html .=					'<select class="newsjr-select-mes" name="mes">';
-										if(!empty($_GET['mes'])) :
-		$html .=						 	'<option value="">'. __( 'Listar todos do ano', 'newsletter-jr' ) .'</option>';
-										else :
-		$html .=						 	'<option value="" selected="selected" >'. __( 'Listar todos do ano', 'newsletter-jr' ) .'</option>';
-										endif;
-
-										foreach($this->mes_inscritos as $mes) :
-											if($_GET['mes'] == $mes->mes_rg_usuario) :
-												$selected = ($mes->mes_rg_usuario == $_GET['mes']) ? 'selected="selected"' : '';
-											else :
-												$selected = '';
-											endif;
-
-		$html .= 							'<option value='. $mes->mes_rg_usuario .' '. $selected .'>'. $mes->mes_rg_usuario .'</option>';
-										endforeach;
-		$html .=					'</select>';
-								endif;
-		$html .=			'</div>';
-		$html .=			'<input class="button-secondary" type="submit" value="'. __( 'Filtrar', 'newsletter-jr' ) .'" />';
-		$html .=		'</div>';
-		$html .=	'</form>';
-		
-		$html .= 	'<table class="widefat striped">';
-		$html .=		'<thead>';
-		$html .=			'<tr>';
-		$html .=				'<th class="row-title">ID</th>';
-		$html .=				'<th>'. __( 'Nome', 'newsletter-jr' ) .'</th>';
-		$html .=				'<th>'. __( 'Email', 'newsletter-jr' ) .'</th>';
-		$html .=				'<th>'. __( 'Data', 'newsletter-jr' ) .'</th>';
-		$html .=			'</tr>';
-		$html .=		'</thead>';
-		$html .=		'<tbody>';
-
-							foreach($this->info_newsletter as $news) :
-								$data = explode('-',$news->data_rg_usuario);
-		
-		$html .=				'<tr>';
-		$html .=					'<td>'. $news->id_rg_usuario .'</td>';
-		$html .=					'<td class="row-title">'. $news->nome_rg_usuario .'</td>';
-		$html .=					'<td>'. $news->email_rg_usuario .'</td>';
-		$html .=					'<td>'. $data[2].'/'.$data[1].'/'.$data[0] .'</td>';
-		$html .=				'</tr>';
-							endforeach;
-
-		$html .=		'</tbody>';
-		$html .=		'<tfoot>';
-		$html .=			'<tr>';
-		$html .=				'<th class="row-title">ID</th>';
-		$html .=				'<th>'. __( 'Nome', 'newsletter-jr' ) .'</th>';
-		$html .=				'<th>'. __( 'Email', 'newsletter-jr' ) .'</th>';
-		$html .=				'<th>'. __( 'Data', 'newsletter-jr' ) .'</th>';
-		$html .=			'</tr>';
-		$html .=		'</tfoot>';
-		$html .=	'</table>';
-		$html .='</div>';
-
-
-		echo $html;
-
 	}
 }
 

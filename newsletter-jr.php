@@ -49,6 +49,7 @@ final class NewsletterJr {
 
 		//Arquivo para inclusão de funções para ajax
 		include_once( 'includes/function-ajax.php' );
+
 	}
 
 	public function plugin_url() {

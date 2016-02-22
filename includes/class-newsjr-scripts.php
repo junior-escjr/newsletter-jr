@@ -20,9 +20,11 @@ class NEWSJR_Scripts {
 
 	public function register_css(){
 		wp_enqueue_style('newsletter-jr',  NJR()->plugin_url() . '/assets/css/newsletter-jr.css', array(), '1.0.0');
+		//wp_enqueue_style('jquery-tabs',  NJR()->plugin_url() . '/assets/css/jquery-tabs.css', array(), '1.11.4');
 	}
 
 	public function register_js(){
+		wp_enqueue_script('jquery-tabs', NJR()->plugin_url() . '/assets/js/jquery-tabs.js', array('jquery'), '1.11.4', true);
 		wp_enqueue_script('newsletter-jr', NJR()->plugin_url() . '/assets/js/newsletter-jr.js', array('jquery'), '1.0.0', true);
 		wp_localize_script( 'newsletter-jr', 'ajax', array(
 			'ajax_url' => admin_url( 'admin-ajax.php' )
