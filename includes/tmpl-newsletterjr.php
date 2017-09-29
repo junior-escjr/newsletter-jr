@@ -1,11 +1,8 @@
 <div class="wrap newsletter">
 
 	<h1> <?php _e( 'Newsletters', 'newsletter-jr' ); ?>
-		<?php if(isset($_GET['ano'])) : ?>
-			<a class="button-primary" href="<?php $_SERVER["REQUEST_URI"]; ?>&exportar=1"><?php _e( 'Baixar planilha', 'newsletter-jr' ); ?></a>
-		<?php else : ?>
-			<a class="button-primary" href="admin.php?page=cadastrados-newsletters&exportar=1"><?php _e( 'Baixar planilha', 'newsletter-jr' ); ?></a>
-		<?php endif; ?>
+		
+		<a class="button-primary" href="<?php echo $_SERVER["REQUEST_URI"]; ?>&exportar=1"><?php _e( 'Baixar planilha', 'newsletter-jr' ); ?></a>
 	</h1>
 
 	<ul class="subsubsub">

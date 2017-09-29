@@ -1,6 +1,10 @@
-
+	
 <?php function list_subscribers( $ano_inscritos, $mes_inscritos, $info_newsletter ) { ?>
 	
+	<?php
+	// print_r( $ano_inscritos);
+	$count_ano = count($ano_inscritos); ?>
+
 	<form id="cadastrados-filter" method="GET">
 
 		<!-- tablenav top -->
@@ -17,15 +21,32 @@
 						<option value="" selected="selected" ><?php _e( 'Listar todos os cadastrados', 'newsletter-jr' ) ?></option>
 					<?php endif; ?>
 
-					<?php foreach($ano_inscritos as $ano) : 
+					<?php if($count_ano == 1) : ?>
+
+						<?php foreach($ano_inscritos as $ano) : 
+							if(isset($_GET['ano'])) : 
+								$selected = ($ano == $_GET['ano']) ? 'selected="selected"' : '';
+							else :
+								$selected = '';
+							endif;?>
+
+							<option value="<?php echo $ano;?>" <?php echo $selected ;?> ><?php echo $ano ?></option>
+						<?php endforeach; ?>
+
+					<?php else : ?>
+
+						<?php foreach($ano_inscritos as $ano) : 
 							if(isset($_GET['ano'])) : 
 								$selected = ($ano->ano_rg_usuario == $_GET['ano']) ? 'selected="selected"' : '';
 							else :
 								$selected = '';
 							endif;?>
 
-						<option value="<?php echo $ano->ano_rg_usuario;?>" <?php echo $selected ;?> ><?php echo $ano->ano_rg_usuario ?></option>
-					<?php endforeach; ?>
+							<option value="<?php echo $ano->ano_rg_usuario;?>" <?php echo $selected ;?> ><?php echo $ano->ano_rg_usuario ?></option>
+
+						<?php endforeach; ?>
+
+					<?php endif;?>
 				</select>
 			</div>
 			<!-- /alignleft actions bulkactions -->
@@ -36,9 +57,9 @@
 
 					<select class="newsjr-select-mes" name="mes">
 						<?php if(!empty($_GET['mes'])) : ?>
-							<option value=""><?php _e( 'Listar todos do ano', 'newsletter-jr' ); ?></option>
+							<option value=""><?php _e( 'Listar todos do mês', 'newsletter-jr' ); ?></option>
 						<?php else : ?>
-							<option value="" selected="selected" ><?php _e( 'Listar todos do ano', 'newsletter-jr' );?></option>
+							<option value="" selected="selected" ><?php _e( 'Listar todos do mês', 'newsletter-jr' );?></option>
 						<?php endif; ?>
 
 						<?php foreach($mes_inscritos as $mes) :
