@@ -98,9 +98,6 @@ class NEWSJR_Init {
 					</table>
 				</div>';
 
-
-			echo $html;
-
 			header("Pragma: public");
 			header("Expires: 0");
 			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -110,6 +107,8 @@ class NEWSJR_Init {
 			header("Content-Type: application/download");
 			header("Content-Disposition: attachment;filename=inscritos.xls");
 			header("Content-Transfer-Encoding: binary ");
+			
+			echo $html;
 
 			die();
 		endif;
