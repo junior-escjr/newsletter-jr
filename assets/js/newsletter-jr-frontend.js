@@ -3,16 +3,16 @@
 	var funcoes = {
 		init: function(){
 			//this.ajaxValidateForm();
-			this.validateField();
+			this.actionValidate();
 		},
 
-		ajaxValidateForm: function(){
+		ajaxValidateForm: function(classForm){
 
-			var campos = $('#newsjr-form').serialize();
+			var campos = $('.' + classForm).serialize();
 
 			console.log(campos);
 
-			$('#newsjr-form').after('<div class="spinner"></div>');
+			$('.' + classForm).after('<div class="spinner"></div>');
 
 			$.ajax({
 				type: 'POST',
@@ -21,7 +21,7 @@
 				success: function( response ){
 					$('.spinner').remove();
 
-					$('#newsjr-form').after( response );
+					$('.' + classForm).after( response );
 
 					console.log(response);
 				}
@@ -30,8 +30,8 @@
 			return false;
 		},
 
-		validateField: function(){
-			$("#newsjr-form").validate({
+		validateField: function(classForm){
+			$('.' + classForm).validate({
 				rules: {
 					newsjr_nome: "required",
 					newsjr_email: {
@@ -50,8 +50,17 @@
 				},
 
 				submitHandler: function(){
-					$('#newsjr-form').on('submit', funcoes.ajaxValidateForm());
+					$(this).on('submit', funcoes.ajaxValidateForm(classForm));
 				}
+			});
+		},
+
+		actionValidate: function(){
+			$('.btn').on('click', function(){
+				var valClass = $(this).parent().attr('class');
+				console.log(valClass);
+
+				funcoes.validateField(valClass);
 			});
 		}
 	}

@@ -41,7 +41,7 @@ class NEWSJR_Init {
 				'class_button' => ''
 				), $attrs));
 
-		$form = '<form id="newsjr-form" novalidate>
+		$form = '<form class="newsjr-form'. rand(500, 50000) .'" novalidate>
 					<div class="newsjr-form-group">
 						<input type="text" name="newsjr_nome" class="newsjr-form-control '. $class .'" placeholder="'. $placeholder_text .'" />
 					</div>
